@@ -1,0 +1,23 @@
+<f:layout name="Bootstrap" />
+
+<f:section name="Title">
+	<f:translate>new Workspaces</f:translate>
+</f:section>
+
+<f:section name="Content">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<f:translate>Create a folder</f:translate>
+		</div>
+		<div class="panel-body">
+			<f:form action="create" name="folder" object="folder">
+				<f:form.hidden property="parentFolder" value="{parentFolder}" />
+				<f:render partial="Folder/Form" arguments="{folder:folder, parentFolder:parentFolder}" />
+				<f:form.button class="btn btn-default">
+					<f:translate>Create folder</f:translate>
+				</f:form.button>
+			</f:form>
+		</div>
+	</div>
+
+</f:section>

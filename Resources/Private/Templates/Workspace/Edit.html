@@ -1,0 +1,22 @@
+<f:layout name="Bootstrap" />
+
+<f:section name="Title">
+	<f:translate>edit Workspaces</f:translate> {workspace.name}
+</f:section>
+
+<f:section name="Content">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<f:translate>Edit Workspace</f:translate> {workspace.name}
+		</div>
+		<div class="panel-body">
+			<f:form action="update" name="workspace" object="{workspace}">
+				<f:render partial="Workspace/Form" arguments="{workspace:workspace}"/>
+				<f:form.button class="btn btn-default">
+					<f:translate>Save Workspace</f:translate>
+				</f:form.button>
+			</f:form>
+		</div>
+	</div>
+
+</f:section>
