@@ -12,7 +12,20 @@
 				<thead>
 				<tr>
 					<th>
-						<f:translate>Folders in </f:translate> {folder.name}
+						<f:translate>Folders in </f:translate>
+						<f:if condition="{folder.parentFolder}">
+							<f:then>
+								<f:link.action action="index" arguments="{folder:folder.parentFolder}">
+									{folder.name}
+								</f:link.action>
+							</f:then>
+							<f:else>
+								<f:link.action action="index" controller="workspace">
+									{folder.name}
+								</f:link.action>
+							</f:else>
+						</f:if>
+
 					</th>
 					<th>
 						<f:link.action action="new" arguments="{parentFolder:folder}"  title="{f:translate(value:'create a new folder')}" class="pull-right">

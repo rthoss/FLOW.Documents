@@ -6,32 +6,36 @@
 
 <f:section name="Content">
 
-	<table class="table">
-		<thead>
-			<tr>
-				<th>
-					Workspaces
-				</th>
-				<th>
-					<f:link.action action="new" title="{f:translate(value:'create a new workspace')}" class="pull-right">
-						<span class="glyphicon glyphicon-plus-sign"></span>
-					</f:link.action>
-				</th>
-			</tr>
-		</thead>
-		<f:for each="{workspaces}" as="workspace">
-			<tr title="{workspace.description}">
-				<td>
-					<f:link.action action="index" controller="folder" arguments="{folder:workspace.folder}">
-						{workspace.name}
-					</f:link.action>
-				</td>
-				<td>
-					<f:link.action action="edit" arguments="{workspace:workspace}" class="pull-right">
-						<span class="glyphicon glyphicon-pencil"></span>
-					</f:link.action>
-				</td>
-			</tr>
-		</f:for>
-	</table>
+	<div class="row">
+		<div class="col-md-6">
+			<table class="table">
+				<thead>
+				<tr>
+					<th>
+						Workspaces
+					</th>
+					<th>
+						<f:link.action action="new" title="{f:translate(value:'create a new workspace')}" class="pull-right">
+							<span class="glyphicon glyphicon-plus-sign"></span>
+						</f:link.action>
+					</th>
+				</tr>
+				</thead>
+				<f:for each="{workspaces}" as="workspace">
+					<tr title="{workspace.description}">
+						<td>
+							<f:link.action action="index" controller="folder" arguments="{folder:workspace.folder}">
+								{workspace.name}
+							</f:link.action>
+						</td>
+						<td>
+							<f:link.action action="edit" arguments="{workspace:workspace}" class="pull-right">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</f:link.action>
+						</td>
+					</tr>
+				</f:for>
+			</table>
+		</div>
+	</div>
 </f:section>
