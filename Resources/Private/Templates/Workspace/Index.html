@@ -22,11 +22,14 @@
 				</tr>
 				</thead>
 				<f:for each="{workspaces}" as="workspace">
-					<tr title="{workspace.description}">
+					<tr>
 						<td>
 							<f:link.action action="index" controller="folder" arguments="{folder:workspace.folder}">
 								{workspace.name}
-							</f:link.action>
+							</f:link.action><br>
+							<small>
+								<f:format.nl2br>{workspace.description}</f:format.nl2br>
+							</small>
 						</td>
 						<td>
 							<f:link.action action="edit" arguments="{workspace:workspace}" class="pull-right">

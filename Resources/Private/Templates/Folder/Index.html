@@ -64,7 +64,15 @@
 					</th>
 				</tr>
 				</thead>
-
+				<f:for each="{folder.files}" as="file">
+					<tr>
+						<td>
+							<f:link.action action="getContent" controller="file" arguments="{file:file}">
+								{file.name}
+							</f:link.action>
+						</td>
+					</tr>
+				</f:for>
 			</table>
 		</div>
 	</div>

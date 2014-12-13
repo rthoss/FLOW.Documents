@@ -8,7 +8,10 @@
 
 namespace KayStrobach\Documents\Controller;
 
+use KayStrobach\Documents\Domain\Model\File;
+use KayStrobach\Documents\Domain\Model\Folder;
 use TYPO3\Flow\Annotations as Flow;
+use TYPO3\Flow\Mvc\Exception\StopActionException;
 
 class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 
@@ -19,20 +22,27 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	protected $fileRepository;
 
 	/**
+	 * @param Folder $parentFolder
+	 */
+	public function newAction(Folder $parentFolder) {
+		$this->view->assign('parentFolder', $parentFolder);
+	}
+
+	/**
 	 * Upload a file
 	 *
-	 * @param Folder $folder
 	 * @param File $file
 	 */
-	public function addFileAction(Folder $folder, File $file) {
-		$folder->addFile($file);
+	public function createAction(File $file) {
+		$file->setName($file->getOriginalResource()->getFilename());
+		$this->fileRepository->add($file);
 		$this->redirect(
-				'getFolder',
-				NULL,
-				NULL,
-				array(
-						'folder' => $folder
-				)
+			'index',
+			'folder',
+			NULL,
+			array(
+				'folder' => $file->getParentFolder()
+			)
 		);
 	}
 
@@ -40,8 +50,12 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @param File $file
 	 * @return string
 	 */
-	public function getFileAction(File $file) {
-		return $file->getContent();
+	public function getContentAction(File $file) {
+		$this->response->setHeader('Content-Type', $file->getOriginalResource()->getMediaType());
+		$this->response->setHeader('Content-Length', @filesize('resource://' . $file->getOriginalResource()->getResourcePointer()->getHash()));
+		$this->response->setHeader('Content-Disposition', 'inline; filename="' . $file->getName() . '"');
+		$buffer = @file_get_contents('resource://' . $file->getOriginalResource()->getResourcePointer());
+		return $buffer;
 	}
 
 

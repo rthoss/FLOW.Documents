@@ -33,7 +33,7 @@ class Folder extends FileSystemNode{
 	 * File Children
 	 *
 	 * @var \Doctrine\Common\Collections\Collection<\KayStrobach\Documents\Domain\Model\File>
-	 * @ORM\ManyToMany(cascade={"all"}, orphanRemoval=TRUE))
+	 * @ORM\OneToMany(cascade={"all"}, orphanRemoval=TRUE, mappedBy="parentFolder"))
 	 * @ORM\OrderBy({"name" = "ASC"})
 	 */
 	protected $files;

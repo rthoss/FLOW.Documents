@@ -21,6 +21,12 @@ class File extends FileSystemNode {
 	protected $originalResource;
 
 	/**
+	 * @var \KayStrobach\Documents\Domain\Model\Folder
+	 * @ORM\ManyToOne(inversedBy="folders")
+	 */
+	protected $parentFolder;
+
+	/**
 	 * @return \TYPO3\Flow\Resource\Resource
 	 */
 	public function getOriginalResource() {
@@ -32,6 +38,20 @@ class File extends FileSystemNode {
 	 */
 	public function setOriginalResource($originalResource) {
 		$this->originalResource = $originalResource;
+	}
+
+	/**
+	 * @return Folder
+	 */
+	public function getParentFolder() {
+		return $this->parentFolder;
+	}
+
+	/**
+	 * @param Folder $parentFolder
+	 */
+	public function setParentFolder($parentFolder) {
+		$this->parentFolder = $parentFolder;
 	}
 
 
