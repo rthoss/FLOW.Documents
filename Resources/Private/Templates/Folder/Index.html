@@ -38,6 +38,7 @@
 					<tr>
 						<td>
 							<f:link.action action="index" controller="folder" arguments="{folder:subfolder}">
+								<span class="glyphicon glyphicon-folder-close"></span>
 								{subfolder.name}
 							</f:link.action>
 						</td>
@@ -68,6 +69,7 @@
 					<tr>
 						<td>
 							<f:link.action action="getContent" controller="file" arguments="{file:file}">
+								<span class="glyphicon glyphicon-file"></span>
 								{file.name}
 							</f:link.action>
 						</td>
