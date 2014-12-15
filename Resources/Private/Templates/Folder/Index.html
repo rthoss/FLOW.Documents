@@ -75,7 +75,7 @@
 				<f:for each="{folder.files}" as="file">
 					<tr>
 						<td>
-							<f:link.action action="getContent"  arguments="{file:file}" class="btn btn-link">
+							<f:link.action action="download" controller="file" arguments="{file:file}" class="btn btn-link">
 								<span class="glyphicon glyphicon-file"></span>
 								{file.name}
 							</f:link.action>

@@ -50,7 +50,7 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @param File $file
 	 * @return string
 	 */
-	public function getContentAction(File $file) {
+	public function downloadAction(File $file) {
 		$this->response->setHeader('Content-Type', $file->getOriginalResource()->getMediaType());
 		$this->response->setHeader('Content-Length', @filesize('resource://' . $file->getOriginalResource()->getResourcePointer()->getHash()));
 		$this->response->setHeader('Content-Disposition', 'inline; filename="' . $file->getName() . '"');
