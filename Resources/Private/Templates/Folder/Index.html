@@ -8,7 +8,7 @@
 
 	<div class="row">
 		<div class="col-md-6">
-			<table class="table">
+			<table class="table table-striped table-hover">
 				<thead>
 				<tr>
 					<th>
@@ -37,22 +37,29 @@
 				<f:for each="{folder.folders}" as="subfolder">
 					<tr>
 						<td>
-							<f:link.action action="index" controller="folder" arguments="{folder:subfolder}">
+							<f:link.action action="index" controller="folder" arguments="{folder:subfolder}" class="btn btn-link">
 								<span class="glyphicon glyphicon-folder-close"></span>
 								{subfolder.name}
 							</f:link.action>
 						</td>
 						<td>
-							<f:link.action action="edit" arguments="{subfolder:workspace}" class="pull-right">
-								<span class="glyphicon glyphicon-pencil"></span>
-							</f:link.action>
+							<f:form action="remove">
+								<f:form.hidden name="folder" value="{subfolder}" />
+								<f:link.action action="edit" arguments="{folder:subfolder}" class="btn btn-link pull-right">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</f:link.action>
+								<f:form.button class="btn btn-link pull-right">
+									<span class="glyphicon glyphicon-trash"></span>
+									<f:form.hidden name="workspace" value="{workspace}" />
+								</f:form.button>
+							</f:form>
 						</td>
 					</tr>
 				</f:for>
 			</table>
 		</div>
 		<div class="col-md-6">
-			<table class="table">
+			<table class="table table-striped table-hover">
 				<thead>
 				<tr>
 					<th>
@@ -68,10 +75,22 @@
 				<f:for each="{folder.files}" as="file">
 					<tr>
 						<td>
-							<f:link.action action="getContent" controller="file" arguments="{file:file}">
+							<f:link.action action="getContent"  arguments="{file:file}" class="btn btn-link">
 								<span class="glyphicon glyphicon-file"></span>
 								{file.name}
 							</f:link.action>
+						</td>
+						<td>
+							<f:form action="remove" controller="file">
+								<f:form.hidden name="file" value="{file}" />
+								<f:link.action action="edit" controller="file" arguments="{file:file}" class="btn btn-link pull-right">
+									<span class="glyphicon glyphicon-pencil"></span>
+								</f:link.action>
+								<f:form.button class="btn btn-link pull-right">
+									<span class="glyphicon glyphicon-trash"></span>
+									<f:form.hidden name="workspace" value="{workspace}" />
+								</f:form.button>
+							</f:form>
 						</td>
 					</tr>
 				</f:for>

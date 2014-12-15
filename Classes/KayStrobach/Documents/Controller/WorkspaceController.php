@@ -71,4 +71,13 @@ class WorkspaceController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		$this->workspaceRepository->update($workspace);
 		$this->redirect('index');
 	}
+
+	/**
+	 * @param Workspace $workspace
+	 * @throws \TYPO3\Flow\Persistence\Exception\IllegalObjectTypeException
+	 */
+	public function removeAction(Workspace $workspace) {
+		$this->workspaceRepository->remove($workspace);
+		$this->redirect('index');
+	}
 }

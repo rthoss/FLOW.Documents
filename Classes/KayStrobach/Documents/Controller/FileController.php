@@ -58,5 +58,10 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		return $buffer;
 	}
 
+	public function removeAction(File $file) {
+		$this->fileRepository->remove($file);
+		$this->redirect('index', 'folder', NULL, array('folder' => $file->getParentFolder()));
+	}
+
 
 }
