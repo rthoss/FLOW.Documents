@@ -22,7 +22,7 @@ class File extends FileSystemNode {
 
 	/**
 	 * @var \KayStrobach\Documents\Domain\Model\Folder
-	 * @ORM\ManyToOne(inversedBy="folders")
+	 * @ORM\ManyToOne(inversedBy="files")
 	 */
 	protected $parentFolder;
 
