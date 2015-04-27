@@ -48,14 +48,22 @@ class FolderController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 * @param Folder $folder
 	 */
 	public function editAction(Folder $folder) {
-
+		$this->view->assign('folder', $folder);
 	}
 
 	/**
 	 * @param Folder $folder
 	 */
 	public function updateAction(Folder $folder) {
-
+		$this->folderRepository->update($folder);
+		$this->redirect(
+			'index',
+			NULL,
+			NULL,
+			array(
+				'folder' => $folder->getParentFolder()
+			)
+		);
 	}
 
 	public function removeAction(Folder $folder) {
@@ -66,4 +74,6 @@ class FolderController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 			$this->redirect('index', 'workspace');
 		}
 	}
+
+
 }
