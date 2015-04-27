@@ -22,6 +22,12 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	protected $fileRepository;
 
 	/**
+	 * @Flow\Inject
+	 * @var \TYPO3\Flow\Resource\ResourceManager
+	 */
+	protected $resourceManager;
+
+	/**
 	 * @param Folder $parentFolder
 	 */
 	public function newAction(Folder $parentFolder) {
@@ -84,10 +90,54 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 		return $buffer;
 	}
 
+	/**
+	 * removes a file
+	 *
+	 * @param File $file
+	 * @throws \TYPO3\Flow\Persistence\Exception\IllegalObjectTypeException
+	 */
 	public function removeAction(File $file) {
 		$this->fileRepository->remove($file);
 		$this->redirect('index', 'folder', NULL, array('folder' => $file->getParentFolder()));
 	}
 
+	/**
+	 * action for html5 multifile upload
+	 *
+	 * @param Folder $folder
+	 */
+	public function multiUploadAction(Folder $folder) {
+		if (isset($_FILES) && !empty($_FILES)) {
+			$count = 0;
+			foreach ($_FILES as $file) {
+				foreach ($file['name'] as $filename) {
+					if ($file['name'][$count] != "") {
+
+						$resource = array(
+							'tmp_name' => $file['tmp_name'][$count],
+							'name'     => $file['name'][$count]
+						);
+						/** @var \TYPO3\Flow\Resource\Resource $newResource */
+						$newResource = $this->resourceManager->importUploadedResource($resource);
+
+						$newFile = new File();
+						$newFile->setParentFolder($folder);
+						$newFile->setOriginalResource($newResource);
+						$newFile->setName($newResource->getFilename());
+						$this->fileRepository->add($newFile);
+						$count++;
+					}
+				}
+			}
+		}
+		$this->redirect(
+			'index',
+			'Folder',
+			NULL,
+			array(
+				'folder' => $folder
+			)
+		);
+	}
 
 }

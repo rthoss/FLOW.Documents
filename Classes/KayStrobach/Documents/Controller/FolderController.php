@@ -8,6 +8,7 @@
 
 namespace KayStrobach\Documents\Controller;
 
+use KayStrobach\Documents\Domain\Model\File;
 use KayStrobach\Documents\Domain\Model\Folder;
 use TYPO3\Flow\Annotations as Flow;
 
@@ -69,14 +70,16 @@ class FolderController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	public function removeAction(Folder $folder) {
 		$this->folderRepository->remove($folder);
 		if($folder->getParentFolder() !== NULL) {
-			$this->redirect('index', NULL, NULL, array('folder' => $folder->getParentFolder()));
+			$this->redirect(
+				'index',
+				NULL,
+				NULL,
+				array(
+					'folder' => $folder->getParentFolder()
+				)
+			);
 		} else {
 			$this->redirect('index', 'workspace');
 		}
 	}
-
-	public function multiUploadAction($files) {
-
-	}
-
 }
