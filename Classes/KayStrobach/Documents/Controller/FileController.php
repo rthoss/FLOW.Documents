@@ -29,6 +29,24 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	}
 
 	/**
+	 * Upload a file
+	 *
+	 * @param File $file
+	 */
+	public function createAction(File $file) {
+		$file->setName($file->getOriginalResource()->getFilename());
+		$this->fileRepository->add($file);
+		$this->redirect(
+			'index',
+			'folder',
+			NULL,
+			array(
+				'folder' => $file->getParentFolder()
+			)
+		);
+	}
+
+	/**
 	 * edit a file
 	 *
 	 * @param File $file
@@ -44,24 +62,6 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	 */
 	public function updateAction(File $file) {
 		$this->fileRepository->update($file);
-		$this->redirect(
-			'index',
-			'folder',
-			NULL,
-			array(
-				'folder' => $file->getParentFolder()
-			)
-		);
-	}
-
-	/**
-	 * Upload a file
-	 *
-	 * @param File $file
-	 */
-	public function createAction(File $file) {
-		$file->setName($file->getOriginalResource()->getFilename());
-		$this->fileRepository->add($file);
 		$this->redirect(
 			'index',
 			'folder',
