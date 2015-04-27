@@ -16,7 +16,7 @@ class File extends FileSystemNode {
 
 	/**
 	 * @var \TYPO3\Flow\Resource\Resource
-	 * @ORM\OneToOne
+	 * @ORM\OneToOne(cascade={"all"})
 	 */
 	protected $originalResource;
 

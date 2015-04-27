@@ -29,6 +29,32 @@ class FileController extends \TYPO3\Flow\Mvc\Controller\ActionController {
 	}
 
 	/**
+	 * edit a file
+	 *
+	 * @param File $file
+	 */
+	public function editAction(File $file) {
+		$this->view->assign('file', $file);
+	}
+
+	/**
+	 * update a file
+	 *
+	 * @param File $file
+	 */
+	public function updateAction(File $file) {
+		$this->fileRepository->update($file);
+		$this->redirect(
+			'index',
+			'folder',
+			NULL,
+			array(
+				'folder' => $file->getParentFolder()
+			)
+		);
+	}
+
+	/**
 	 * Upload a file
 	 *
 	 * @param File $file

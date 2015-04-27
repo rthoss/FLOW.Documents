@@ -1,0 +1,29 @@
+<f:layout name="Bootstrap" />
+
+<f:section name="Title">
+	<f:translate>new File</f:translate>
+</f:section>
+
+<f:section name="Content">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<f:translate>Update file</f:translate>
+		</div>
+		<div class="panel-body">
+			<f:form action="update" name="file" object="{file}" enctype="multipart/form-data">
+				<div class="form-group">
+					<label for="filename" class="col-sm-2 control-label">
+						<f:translate>Filename</f:translate>
+					</label>
+					<div class="col-sm-10">
+						<f:form.textfield property="name" class="form-control" id="filename"  />
+					</div>
+				</div>
+				<f:form.button class="btn btn-default">
+					<f:translate>Update file</f:translate>
+				</f:form.button>
+			</f:form>
+		</div>
+	</div>
+
+</f:section>
