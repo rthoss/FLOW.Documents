@@ -2,6 +2,105 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
 	<file original="" source-language="en" target-language="de" datatype="plaintext">
 		<body>
-		</body>
+            <trans-unit id="filename">
+                <source>Filename</source>
+                <target>Dateiname</target>
+            </trans-unit>
+
+            <trans-unit id="file.update">
+                <source>Update file</source>
+                <target>Datei aktualisieren</target>
+            </trans-unit>
+
+            <trans-unit id="file.new">
+                <source>new File</source>
+                <target>neue Datei</target>
+            </trans-unit>
+
+            <trans-unit id="file.create">
+                <source>Create a file</source>
+                <target>Datei anlegen</target>
+            </trans-unit>
+
+            <trans-unit id="file.upload">
+                <source>upload some new files</source>
+                <target>einige Dateien hochladen</target>
+            </trans-unit>
+
+            <trans-unit id="File">
+                <source>File</source>
+                <target>Datei</target>
+            </trans-unit>
+
+            <trans-unit id="name">
+                <source>Name</source>
+                <target>Name</target>
+            </trans-unit>
+
+            <trans-unit id="description">
+                <source>Description</source>
+                <target>Beschreibung</target>
+            </trans-unit>
+
+            <trans-unit id="folder">
+                <source>Folder</source>
+                <target>Ordner</target>
+            </trans-unit>
+
+            <trans-unit id="folders.in">
+                <source>Folders in </source>
+                <target>Ordner in </target>
+            </trans-unit>
+
+            <trans-unit id="folder.create">
+                <source>create a new folder</source>
+                <target>Ordner anlegen</target>
+            </trans-unit>
+
+            <trans-unit id="files.in">
+                <source>Files of </source>
+                <target>Dateien in</target>
+            </trans-unit>
+
+            <trans-unit id="files.choose">
+                <source>Choose Files</source>
+                <target>Dateien auswählen</target>
+            </trans-unit>
+
+            <trans-unit id="upload">
+                <source>Upload</source>
+                <target>Hochladen</target>
+            </trans-unit>
+
+            <trans-unit id="folder.new">
+                <source>new Folder</source>
+                <target>neuer Ordner</target>
+            </trans-unit>
+
+            <trans-unit id="files.create">
+                <source>Create a folder</source>
+                <target>Einen Ordner anlegen</target>
+            </trans-unit>
+
+            <trans-unit id="workspaces">
+                <source>Workspaces</source>
+                <target>Arbeitsbereiche</target>
+            </trans-unit>
+
+            <trans-unit id="workspace.save">
+                <source>Save Workspace</source>
+                <target>Arbeitsbereich speichern</target>
+            </trans-unit>
+
+            <trans-unit id="workspace.create">
+                <source>create a new workspace</source>
+                <target>Arbeitsbereich anlegen</target>
+            </trans-unit>
+
+            <trans-unit id="workspace.edit">
+                <source>Edit Workspace</source>
+                <target>Arbeitsbereich bearbeiten</target>
+            </trans-unit>
+        </body>
 	</file>
 </xliff>
