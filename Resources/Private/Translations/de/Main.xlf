@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-	<file original="" source-language="en" target-language="de" datatype="plaintext">
-		<body>
+    <file original="" source-language="en" target-language="de" datatype="plaintext">
+        <body>
             <trans-unit id="filename">
                 <source>Filename</source>
                 <target>Dateiname</target>
@@ -27,6 +27,11 @@
                 <target>einige Dateien hochladen</target>
             </trans-unit>
 
+            <trans-unit id="file.upload">
+                <source>create a file</source>
+                <target>Eine Datei hochladen</target>
+            </trans-unit>
+
             <trans-unit id="File">
                 <source>File</source>
                 <target>Datei</target>
@@ -47,7 +52,7 @@
                 <target>Ordner</target>
             </trans-unit>
 
-            <trans-unit id="folders.in">
+            <trans-unit id="folders.index">
                 <source>Folders in </source>
                 <target>Ordner in </target>
             </trans-unit>
@@ -74,17 +79,22 @@
 
             <trans-unit id="folder.new">
                 <source>new Folder</source>
-                <target>neuer Ordner</target>
+                <target>Neuen Ordner anlegen</target>
             </trans-unit>
 
             <trans-unit id="files.create">
                 <source>Create a folder</source>
-                <target>Einen Ordner anlegen</target>
+                <target>Neuen Ordner anlegen</target>
             </trans-unit>
 
             <trans-unit id="workspaces">
                 <source>Workspaces</source>
                 <target>Arbeitsbereiche</target>
+            </trans-unit>
+
+            <trans-unit id="workspaces">
+                <source>open workspace</source>
+                <target>Arbeitsbereich öffnen</target>
             </trans-unit>
 
             <trans-unit id="workspace.save">
@@ -98,9 +108,15 @@
             </trans-unit>
 
             <trans-unit id="workspace.edit">
-                <source>Edit Workspace</source>
+                <source>edit workspace</source>
                 <target>Arbeitsbereich bearbeiten</target>
             </trans-unit>
+
+            <trans-unit id="workspace.delete">
+                <source>delete workspace</source>
+                <target>Arbeitsbereich löschen</target>
+            </trans-unit>
+
         </body>
-	</file>
+    </file>
 </xliff>
