@@ -1,7 +1,7 @@
-﻿<?xml version="1.0"?>
+<?xml version="1.0"?>
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
-    <file original="" source-language="en" target-language="de" datatype="plaintext">
-        <body>
+	<file original="" source-language="en" target-language="de" datatype="plaintext">
+		<body>
             <trans-unit id="filename">
                 <source>Filename</source>
                 <target>Dateiname</target>
@@ -14,7 +14,7 @@
 
             <trans-unit id="file.new">
                 <source>new File</source>
-                <target>neue Datei</target>
+                <target>Neue Datei</target>
             </trans-unit>
 
             <trans-unit id="file.create">
@@ -24,10 +24,10 @@
 
             <trans-unit id="file.upload">
                 <source>upload some new files</source>
-                <target>einige Dateien hochladen</target>
+                <target>Einige Dateien hochladen</target>
             </trans-unit>
 
-            <trans-unit id="file.upload">
+              <trans-unit id="file.upload">
                 <source>create a file</source>
                 <target>Eine Datei hochladen</target>
             </trans-unit>
@@ -92,10 +92,10 @@
                 <target>Arbeitsbereiche</target>
             </trans-unit>
 
-            <trans-unit id="workspaces">
-                <source>open workspace</source>
-                <target>Arbeitsbereich öffnen</target>
-            </trans-unit>
+             <trans-unit id="workspaces">
+                 <source>open workspace</source>
+                 <target>Arbeitsbereich öffnen</target>
+             </trans-unit>
 
             <trans-unit id="workspace.save">
                 <source>Save Workspace</source>
@@ -112,11 +112,11 @@
                 <target>Arbeitsbereich bearbeiten</target>
             </trans-unit>
 
-            <trans-unit id="workspace.delete">
+             <trans-unit id="workspace.delete">
                 <source>delete workspace</source>
                 <target>Arbeitsbereich löschen</target>
-            </trans-unit>
+             </trans-unit>
 
         </body>
-    </file>
+	</file>
 </xliff>
