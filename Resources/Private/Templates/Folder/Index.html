@@ -43,16 +43,12 @@
 							</f:link.action>
 						</td>
 						<td>
-							<f:form action="remove">
-								<f:form.hidden name="folder" value="{subfolder}" />
-								<f:link.action action="edit" arguments="{folder:subfolder}" class="btn btn-link pull-right">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</f:link.action>
-								<f:form.button class="btn btn-link pull-right">
-									<span class="glyphicon glyphicon-trash"></span>
-									<f:form.hidden name="workspace" value="{workspace}" />
-								</f:form.button>
-							</f:form>
+							<f:link.action action="edit" arguments="{folder:subfolder}" class="btn btn-link pull-right">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</f:link.action>
+							<a href="" class="btn btn-link pull-right" data-toggle="modal" data-target="#delete-{subfolder -> f:format.identifier()}">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a>
 						</td>
 					</tr>
 				</f:for>
@@ -66,9 +62,6 @@
 						<f:translate>Files of </f:translate> {folder.name}
 					</th>
 					<th>
-						<f:link.action action="new" controller="file" arguments="{parentFolder:folder}" title="{f:translate(value:'create a file')}" class="btn btn-link pull-right">
-							<span class="glyphicon glyphicon-plus-sign"></span>
-						</f:link.action>
 						<!-- Button trigger modal -->
 						<button type="button" class="btn btn-link pull-right" data-toggle="modal" title="{f:translate(value:'upload some new files')}" data-target="#fileUploadModal">
 							<span class="glyphicon glyphicon-cloud-upload"></span>
@@ -85,16 +78,12 @@
 							</f:link.action>
 						</td>
 						<td>
-							<f:form action="remove" controller="file">
-								<f:form.hidden name="file" value="{file}" />
-								<f:link.action action="edit" controller="file" arguments="{file:file}" class="btn btn-link pull-right">
-									<span class="glyphicon glyphicon-pencil"></span>
-								</f:link.action>
-								<f:form.button class="btn btn-link pull-right">
-									<span class="glyphicon glyphicon-trash"></span>
-									<f:form.hidden name="workspace" value="{workspace}" />
-								</f:form.button>
-							</f:form>
+							<f:link.action action="edit" controller="file" arguments="{file:file}" class="btn btn-link pull-right">
+								<span class="glyphicon glyphicon-pencil"></span>
+							</f:link.action>
+							<a href="" class="btn btn-link pull-right" data-toggle="modal" data-target="#delete-{file -> f:format.identifier()}">
+								<span class="glyphicon glyphicon-trash"></span>
+							</a>
 						</td>
 					</tr>
 				</f:for>
@@ -141,4 +130,55 @@
 		</div>
 	</f:form>
 
+	<f:for each="{folder.folders}" as="subfolder">
+		<f:form action="remove" controller="folder">
+			<f:form.hidden name="folder" value="{subfolder}" />
+			<div class="modal fade" id="delete-{subfolder -> f:format.identifier()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" ><f:translate>Delete</f:translate> {subfolder.name}?</h4>
+						</div>
+						<div class="modal-body">
+							<f:translate>The folder and all subfolders will be deleted.</f:translate>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-trash"></span>
+								<f:translate>Delete</f:translate>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:form>
+	</f:for>
+
+	<f:for each="{folder.files}" as="file">
+		<f:form action="remove" controller="file">
+			<f:form.hidden name="file" value="{file}" />
+			<div class="modal fade" id="delete-{file -> f:format.identifier()}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							<h4 class="modal-title" ><f:translate>Delete</f:translate> {file.name}?</h4>
+						</div>
+						<div class="modal-body">
+							<f:translate>The file will be deleted.</f:translate>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							<button type="submit" class="btn btn-primary">
+								<span class="glyphicon glyphicon-trash"></span>
+								<f:translate>Delete</f:translate>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</f:form>
+	</f:for>
 </f:section>
