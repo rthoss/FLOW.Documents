@@ -6,6 +6,7 @@ namespace KayStrobach\Documents\Domain\Model;
  *                                                                        *
  *                                                                        */
 
+use KayStrobach\Documents\Domain\Repository\WorkspaceRepository;
 use TYPO3\Flow\Annotations as Flow;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -13,6 +14,12 @@ use Doctrine\ORM\Mapping as ORM;
  * @Flow\Entity
  */
 class Folder extends FileSystemNode{
+
+	/**
+	 * @Flow\Inject()
+	 * @var WorkspaceRepository
+	 */
+	protected $workspaceRepository;
 
 	/**
 	 * @var \KayStrobach\Documents\Domain\Model\Folder
@@ -106,5 +113,28 @@ class Folder extends FileSystemNode{
 	 */
 	public function removeFile(File $file) {
 		$this->files->remove($file);
+	}
+
+	/**
+	 * @return Folder
+	 */
+	public function getTopMostParentFolder() {
+		/** @var Folder $parentFolder */
+		if($this->getParentFolder() === NULL) {
+			$folder = $this;
+		} else {
+			$folder = $this->getParentFolder();
+		}
+		while($folder->getParentFolder() !== NULL) {
+			$folder = $folder->getParentFolder();
+		}
+		return $folder;
+	}
+
+	/**
+	 * @return Workspace
+	 */
+	public function getWorkspace() {
+		return $this->workspaceRepository->findByRootFolder($this->getTopMostParentFolder());
 	}
 }
