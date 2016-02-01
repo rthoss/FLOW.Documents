@@ -1,7 +1,15 @@
 <f:layout name="Bootstrap" />
 
 <f:section name="Title">
-	<f:translate>create a new workspace</f:translate>
+	<f:translate>{f:translate(value:'create a new workspace')}</f:translate>
+</f:section>
+
+<f:section name="NavigationBar">
+	<ul class="nav navbar-nav">
+		<li>
+			<f:link.action action="index" title="zurück"><span class="glyphicon glyphicon-chevron-left"></span> zurück</f:link.action>
+		</li>
+	</ul>
 </f:section>
 
 <f:section name="Content">
@@ -13,7 +21,7 @@
 			<f:form action="create" name="workspace" object="workspace" class="form-horizontal">
 				<f:render partial="Workspace/Form" />
 				<f:form.button class="btn btn-default">
-					<f:translate>create a new workspace</f:translate>
+					<f:translate>{f:translate(value:'save workspace')}</f:translate>
 				</f:form.button>
 			</f:form>
 		</div>
