@@ -32,7 +32,7 @@
                 <target>Eine Datei hochladen</target>
             </trans-unit>
 
-            <trans-unit id="File">
+            <trans-unit id="file">
                 <source>File</source>
                 <target>Datei</target>
             </trans-unit>
@@ -92,7 +92,7 @@
                 <target>Arbeitsbereiche</target>
             </trans-unit>
 
-             <trans-unit id="workspaces">
+             <trans-unit id="workspace.open">
                  <source>open workspace</source>
                  <target>Arbeitsbereich öffnen</target>
              </trans-unit>
