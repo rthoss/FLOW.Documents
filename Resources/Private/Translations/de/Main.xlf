@@ -8,7 +8,7 @@
             </trans-unit>
 
             <trans-unit id="file.update">
-                <source>Update file</source>
+                <source>update file</source>
                 <target>Datei aktualisieren</target>
             </trans-unit>
 
@@ -18,13 +18,13 @@
             </trans-unit>
 
             <trans-unit id="file.create">
-                <source>Create a file</source>
+                <source>create a file</source>
                 <target>Datei anlegen</target>
             </trans-unit>
 
-            <trans-unit id="file.upload">
+            <trans-unit id="file.uploads">
                 <source>upload some new files</source>
-                <target>Einige Dateien hochladen</target>
+                <target>Mehrere Dateien hochladen</target>
             </trans-unit>
 
               <trans-unit id="file.upload">
@@ -59,7 +59,7 @@
 
             <trans-unit id="folder.create">
                 <source>create a new folder</source>
-                <target>Ordner anlegen</target>
+                <target>Neuen Ordner anlegen</target>
             </trans-unit>
 
             <trans-unit id="files.in">
@@ -68,7 +68,7 @@
             </trans-unit>
 
             <trans-unit id="files.choose">
-                <source>Choose Files</source>
+                <source>choose Files</source>
                 <target>Dateien auswählen</target>
             </trans-unit>
 
@@ -83,7 +83,7 @@
             </trans-unit>
 
             <trans-unit id="files.create">
-                <source>Create a folder</source>
+                <source>create a folder</source>
                 <target>Neuen Ordner anlegen</target>
             </trans-unit>
 
@@ -104,7 +104,7 @@
 
             <trans-unit id="workspace.create">
                 <source>create a new workspace</source>
-                <target>Arbeitsbereich anlegen</target>
+                <target>Neuen Arbeitsbereich anlegen</target>
             </trans-unit>
 
             <trans-unit id="workspace.edit">
