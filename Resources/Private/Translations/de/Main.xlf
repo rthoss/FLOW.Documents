@@ -7,6 +7,16 @@
                 <target>Dateiname</target>
             </trans-unit>
 
+             <trans-unit id="files.in">
+                <source>Files of </source>
+                <target>Dateien in</target>
+            </trans-unit>
+
+            <trans-unit id="files.choose">
+                <source>choose Files</source>
+                <target>Dateien auswählen</target>
+            </trans-unit>
+            
             <trans-unit id="file.update">
                 <source>update file</source>
                 <target>Datei aktualisieren</target>
@@ -60,16 +70,6 @@
             <trans-unit id="folder.create">
                 <source>create a new folder</source>
                 <target>Neuen Ordner anlegen</target>
-            </trans-unit>
-
-            <trans-unit id="files.in">
-                <source>Files of </source>
-                <target>Dateien in</target>
-            </trans-unit>
-
-            <trans-unit id="files.choose">
-                <source>choose Files</source>
-                <target>Dateien auswählen</target>
             </trans-unit>
 
             <trans-unit id="upload">
